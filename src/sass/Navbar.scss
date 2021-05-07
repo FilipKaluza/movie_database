@@ -1,0 +1,25 @@
+@import "mixins.scss";
+@import "variables.scss";
+
+.Navbar {
+    height: 60px;
+    @include flex(space-between, center);
+    border-bottom: 3px solid;
+    border-image-slice: 1;
+    border-image-source: $mainGradient;
+}
+.Logo {
+    margin: 0 0 0 40px;
+}
+
+.FavouriteNav {
+    margin: 0;
+}
+
+.Navbar input {
+    width: 200px!important;
+    height: 40px;
+    margin-right: 40px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}

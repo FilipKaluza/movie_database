@@ -1,0 +1,18 @@
+.MoviesList .ant-col {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.MoviesList .ant-col, .MoviesList .ant-card-cover, .MoviesList .ant-card {
+    width: 100%;
+    height: auto;
+}
+
+.MoviesList .ant-card-cover img {
+    height: auto;
+    max-height: 250px;
+    width: 100%;
+    margin: 0 auto;
+}
+
