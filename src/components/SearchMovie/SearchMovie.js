@@ -1,22 +1,27 @@
 import {useEffect, useState} from "react";
 import { Input } from 'antd';
 
+import {useDispatch} from "react-redux";
+import * as actions from "../store/actions/actions";
+
 const SearchMovie = (props) => {
 
     const [input, setInput ] = useState("");
-    const [movies, setMovies] = useState();
+
+    const dispatch = useDispatch();
 
     const onInputChangeHandler = (e) => {
         e.preventDefault();
         setInput(e.target.value)
     }
 
-    console.log(movies)
-
     useEffect(() => {
-        const parsedMovies = JSON.parse(localStorage.getItem("movies"));
-        setMovies(parsedMovies)
-    }, [])
+        if(input !== "") {
+            dispatch(actions.loadStarted())
+            dispatch(actions.fetchMovies(input))
+        }
+
+    }, [dispatch, input])
 
 
     return(

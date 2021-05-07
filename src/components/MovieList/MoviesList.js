@@ -1,15 +1,22 @@
 import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 
+import {useSelector} from "react-redux";
+import { Spin  } from 'antd';
+
 import { Card } from 'antd';
 const { Meta } = Card;
 
+
 const MoviesList = (props) => {
 
+    const state = useSelector(state => state)
+    console.log(state)
 
-    let MoviesList = <p> No results </p>
-    if(props.movies) {
-        MoviesList = props.movies.map((movie) => {
+
+    let MoviesList = <p> Vyhľadajte svoje obľúbené filmy </p>
+    if(state.movies) {
+        MoviesList = state.movies.map((movie) => {
             let releasedIn = `Released in: ${movie.Year}`
             return (
                 <Col xs={24} sm={12} md={6}>
@@ -22,12 +29,16 @@ const MoviesList = (props) => {
                 </Col>
             );
         })
+    };
+
+    if(state.movies === undefined) {
+        MoviesList = <p> Nenašli sa žiadne filmy </p>
     }
     
 
     return(
         <Row justify="space-around" className="MoviesList">
-            {MoviesList}
+            {state.loading ? <Spin size="large" /> : MoviesList }
         </Row>
     );
 };
