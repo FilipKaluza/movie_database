@@ -1,24 +1,8 @@
+import { Pagination } from 'antd';
 
-const Pagination = (props) => {
+const Pages = (props) => {
 
-
-    const pageNumbers = [];
-    for(let i = 1; i <= Math.ceil(props.totalMovies / props.moviesPerPage); i++) {
-        pageNumbers.push(i)
-    }
-    return (
-        <nav>
-            <ul className="Pagination">
-                {pageNumbers.map((page) => {
-                    return (
-                        <li onClick={() => props.paginate(page)} key={page} >
-                            {page}
-                        </li>
-                    )
-                })}
-            </ul>
-        </nav>
-    );
+    return <Pagination responsive pageSize={props.moviesPerPage} total={props.totalMovies} onChange={(page) => props.paginate(page)} />
 };
 
-export default Pagination;
+export default Pages;

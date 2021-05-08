@@ -3,6 +3,8 @@ import Row from "antd/lib/row";
 import {Link} from "react-router-dom";
 
 import SearchBar from "../SearchMovie/SearchMovie";
+import { ReactComponent as LogoNav } from "../../assets/images/logoNav.svg";
+import { ReactComponent as LogoNavMobile } from "../../assets/images/logoBlack.svg";
 
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useLocation } from "react-router-dom";
@@ -23,9 +25,12 @@ const Navbar = (props) => {
 
     return(
         <Row className="Navbar" >
-            <Link className="Logo" to="/"> Movie Database </Link>
-            <Link className="FavouriteNav" to="/favourites"> Favourites </Link>
-             {serchVisible ? <SearchBar /> : <Link to="/"> <ArrowLeftOutlined > Späť na vyhľadávanie </ArrowLeftOutlined> </Link>  }
+            <Link className="LogoNav" to="/"> <LogoNav className="DesktopLogo" /> <LogoNavMobile className="MobileLogo" /> </Link>
+            <div className="Navigation">
+                <Link className="FavouriteNav" to="/favourites"> Favourites </Link>
+                {serchVisible ? <SearchBar /> : <Link className="BackToSearch" to="/"> Back to Search  <ArrowLeftOutlined /> </Link>  }
+            </div>
+             
         </Row>
     );
 };

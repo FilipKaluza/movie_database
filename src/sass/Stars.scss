@@ -1,0 +1,10 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.anticon-star {
+    @include flex(center,center);
+    margin: 5px;
+    svg {
+        fill: $gold;
+    }
+}

@@ -1,44 +1,81 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-    movies: [],
-    loading: false,
-    error: null,
-    showSpecific: null
+    movies: {
+        data: [],
+        loading: false,
+        error: null
+    },
+    showSpecific: {
+        data: {Ratings: []},
+        loading: false,
+        error: null
+    }
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.LOAD_START:
+        case actionTypes.LOAD_MOVIES_START:
             return {
                 ...state,
-                loading: true
+                showSpecific: {
+                    ...state.movies,
+                    loading: true
+                }
             }
         case actionTypes.FETCH_MOVIES_SUCCESS:
             return  {
                 ...state,
-                movies: action.movies,
-                loading: false
+                movies: {
+                    ...state.movies,
+                    data: action.movies,
+                    loading: false
+                }
             }
         case actionTypes.FETCH_MOVIES_FAILED:
             return {
                 ...state,
-                error: action.error
+                movies: {
+                    ...state.movies,
+                    error: action.error,
+                    loading: false
+                }
+            }
+        case actionTypes.FETCH_SPECIFIC_START:
+            return {
+                ...state,
+                showSpecific: {
+                    ...state.showSpecific,
+                    loading: true,
+                    data: null
+                }
             }
         case actionTypes.FETCH_SPECIFIC_SUCCESS:
             return {
                 ...state,
-                showSpecific: action.movie
+                showSpecific: {
+                    ...state.showSpecific,
+                    data: action.movie,
+                    loading: false
+                }
             }
         case actionTypes.FETCH_SPECIFIC_FAILED:
             return {
                 ...state,
-                error: action.error
+                showSpecific: {
+                    ...state.showSpecific,
+                    error: action.error,
+                    loading: false
+                }
             }
         case "LOADFS":
             return {
                 ...state,
-                movies: action.movies
+                movies: {
+                    ...state.movies,
+                    data: action.movies,
+                    loading: false
+                }
             }
         default:
             return state

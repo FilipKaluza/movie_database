@@ -1,0 +1,15 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.Spinner {
+    width: 100vw;
+    height: 60vh;
+    @include flex(center, center);
+    .ant-spin-dot-item {
+        background-color: $mainColor;
+    }
+}
+
+
+
+

@@ -10,27 +10,25 @@ const SearchMovie = (props) => {
 
     const dispatch = useDispatch();
 
-    const onInputChangeHandler = (e) => {
-        e.preventDefault();
-        setInput(e.target.value)
-    }
-
-    /* useEffect(() => {
-        if(input !== "") {
-            dispatch(actions.loadStarted())
-            dispatch(actions.fetchMovies(input))
-        }
-
-    }, [dispatch, input]) */
     useEffect(() => {
+        const debounce = setTimeout(() => {
+            if(input !== "") {
+                dispatch(actions.fetchMoviesStart())
+                dispatch(actions.fetchMovies(input))
+            }
+        }, 500)
+        return () => clearImmediate(debounce)
+
+    }, [dispatch, input])
+    /* useEffect(() => {
         let movies = JSON.parse(localStorage.getItem("movies"))
         dispatch({type: "LOADFS" , movies: movies})
-    }, [dispatch])
+    }, [dispatch]) */
 
 
     return(
         <>
-            <Input placeholder="Napíšte názov filmu" onChange={(e) => onInputChangeHandler(e)} />
+            <Input placeholder="Enter your film" onChange={(e) => setInput(e.target.value)} />
         </>
     );
 };

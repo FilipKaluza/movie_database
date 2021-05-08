@@ -4,22 +4,69 @@
 .Navbar {
     height: 60px;
     @include flex(space-between, center);
+    background-color: #000;
     border-bottom: 3px solid;
     border-image-slice: 1;
     border-image-source: $mainGradient;
-}
-.Logo {
-    margin: 0 0 0 40px;
+    .LogoNav {
+        .MobileLogo {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+        }
+        .DesktopLogo {
+            margin-left: 40px;
+        }
+    }
+    
+    .Navigation {
+        .FavouriteNav, .BackToSearch {
+            margin-right: 40px;
+            font-size: 20px;
+            color: $mainColor;
+        }
+
+        input {
+            width: 200px!important;
+            height: 40px;
+            margin-right: 10px;
+            border: 1px solid #000;
+            border-radius: 4px;
+        }
+    }
 }
 
-.FavouriteNav {
-    margin: 0;
+@media (max-width: 740px) {
+    .Navbar {
+        height: 60px;
+        .LogoNav {
+            .MobileLogo {
+                visibility: visible;
+                height: 40px;
+                width: 40px;
+                margin-left: 10px;
+            }
+            .DesktopLogo {
+                visibility: hidden;
+                margin: 0;
+                height: 0;
+                width: 0;
+            }
+        }
+        .Navigation {
+            padding: 0;
+            .FavouriteNav, .BackToSearch {
+                height: 100%;
+                font-size: 14px;
+            }  
+            input {
+                width: 160px!important;
+                height: 35px;
+                border: 1px solid #000;
+                border-radius: 4px;
+            }
+        }
+    }
 }
 
-.Navbar input {
-    width: 200px!important;
-    height: 40px;
-    margin-right: 40px;
-    border: 1px solid #000;
-    border-radius: 4px;
-}
+

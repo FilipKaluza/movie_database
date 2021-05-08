@@ -1,9 +1,9 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
-export const loadStarted = () => {
+export const fetchMoviesStart = () => {
     return {
-        type: actionTypes.LOAD_START,
+        type: actionTypes.LOAD_MOVIES_START,
     };
 };
 
@@ -24,13 +24,19 @@ export const fetchMoviesFailed = (error) => {
 export const fetchMovies = (input) => {
     return async dispatch => {
         try {
-            const response = await axios.get(`http://omdbapi.com/?${process.env.REACT_APP_API_KEY}=&s=${input}`)
+            const response = await axios.get(`http://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${input}`)
             const movies = await response.data.Search
             dispatch(fetchMoviesSuccess(movies));
         }
         catch (err) {
             console.log(err)
         }
+    };
+};
+
+export const fetchSpecificMovieStart = () => {
+    return {
+        type: actionTypes.FETCH_SPECIFIC_START
     };
 };
 
