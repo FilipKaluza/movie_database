@@ -4,6 +4,8 @@ import Col from "antd/lib/col";
 import {useSelector} from "react-redux";
 import { Spin  } from 'antd';
 
+import { Link } from "react-router-dom";
+
 import { Card } from 'antd';
 const { Meta } = Card;
 
@@ -18,14 +20,17 @@ const MoviesList = (props) => {
     if(state.movies) {
         MoviesList = state.movies.map((movie) => {
             let releasedIn = `Released in: ${movie.Year}`
+            let path = `movie/${movie.imdbID}`
             return (
                 <Col xs={24} sm={12} md={6}>
-                    <Card
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src={movie.Poster} />} >
-                        <Meta title={movie.Title} description={releasedIn}  />
-                    </Card>
+                    <Link key={movie.imdbID} to={path} >
+                        <Card
+                            hoverable
+                            style={{ width: 240 }}
+                            cover={<img alt="example" src={movie.Poster} />} >
+                            <Meta title={movie.Title} description={releasedIn}  />
+                        </Card>
+                    </Link>
                 </Col>
             );
         })

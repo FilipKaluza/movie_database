@@ -3,7 +3,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
     movies: [],
     loading: false,
-    error: null
+    error: null,
+    showSpecific: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.error
+            }
+        case actionTypes.FETCH_SPECIFIC_SUCCESS:
+            return {
+                ...state,
+                showSpecific: action.movie
+            }
+        case actionTypes.FETCH_SPECIFIC_FAILED:
+            return {
+                ...state,
+                error: action.error
+            }
+        case "LOADFS":
+            return {
+                ...state,
+                movies: action.movies
             }
         default:
             return state

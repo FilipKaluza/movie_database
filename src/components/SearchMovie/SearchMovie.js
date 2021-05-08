@@ -15,13 +15,17 @@ const SearchMovie = (props) => {
         setInput(e.target.value)
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         if(input !== "") {
             dispatch(actions.loadStarted())
             dispatch(actions.fetchMovies(input))
         }
 
-    }, [dispatch, input])
+    }, [dispatch, input]) */
+    useEffect(() => {
+        let movies = JSON.parse(localStorage.getItem("movies"))
+        dispatch({type: "LOADFS" , movies: movies})
+    }, [])
 
 
     return(
