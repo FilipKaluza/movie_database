@@ -25,7 +25,7 @@ const SearchMovie = (props) => {
     useEffect(() => {
         let movies = JSON.parse(localStorage.getItem("movies"))
         dispatch({type: "LOADFS" , movies: movies})
-    }, [])
+    }, [dispatch])
 
 
     return(

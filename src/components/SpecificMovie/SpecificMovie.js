@@ -4,6 +4,7 @@ import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 
 import { useDispatch, useSelector } from "react-redux";
+import Stars from "../Favourites/Stars/Stars";
 
 import * as actions from "../store/actions/actions";
 
@@ -28,7 +29,10 @@ const SpecificMovie = () => {
                         <img src={specificFilm.Poster} alt={specificFilm.Title} />
                     </Col>
                     <Col xs={24} md={16}>
-                        <h1> {specificFilm.Title} </h1>
+                        <Row>
+                            <h1> {specificFilm.Title} </h1>
+                            <Stars movie={{id: specificFilm.imdbID, Poster: specificFilm.Poster, Title: specificFilm.Title}} />
+                        </Row>
                         <p className="DataOfRealease" > Release date: {specificFilm.Released} </p>
                         <p className="Actors"> Actors: {specificFilm.Actors} </p>
                         <p> Genre: {specificFilm.Genre} </p>
