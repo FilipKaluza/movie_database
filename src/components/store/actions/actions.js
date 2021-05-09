@@ -25,12 +25,12 @@ export const fetchMoviesFailed = (error) => {
 export const fetchMovies = (input) => {
     return async dispatch => {
         try {
-            const response = await axios.get(`http://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${input}`)
+            const response = await axios.get(`https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${input}`)
             const movies = await response.data.Search
             dispatch(fetchMoviesSuccess(movies));
         }
         catch (err) {
-            console.log(err)
+            
         }
     };
 };
@@ -58,7 +58,7 @@ export const fetchSpecificMovieFailed = (error) => {
 export const fetchSpecificMovie = (id) => {
     return async dispatch => {
         try {
-            const response = await axios.get(`http://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`)
+            const response = await axios.get(`https://omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`)
             dispatch(fetchSpecificMovieSucces(response.data))
         }
         catch(err) {

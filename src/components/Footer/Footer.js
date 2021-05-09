@@ -11,7 +11,7 @@ const Footer = () => {
                 <LinkedinOutlined />
                 <TwitterOutlined />
             </Row>
-            <p> ©Movie Database 2021 </p>
+            <p> © Movie Database 2021 </p>
         </div>
     );
 };

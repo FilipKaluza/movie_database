@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useSelector} from "react-redux";
 
-import Pagination from "../Pagination/Pagination";
+import Pagination from "../shared/Pagination/Pagination";
 import Spinner from "../shared/Spinner/Spinner";
 import Card from "../shared/Card/Card";
 
@@ -13,7 +13,7 @@ const MoviesList = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [moviesPerPage, setMoviesPerPage] = useState(8);
 
-    let MoviesList = <p className="NotFoundOrSearch"> Vyhľadajte svoje obľúbené filmy </p>
+    let MoviesList = <p className="NotFoundOrSearch"> Search for your favorite movies </p>
 
     if(state.data !== null && state.data !== undefined) {
         const indexOfLastMovie = currentPage * moviesPerPage;
@@ -28,7 +28,7 @@ const MoviesList = (props) => {
     };
 
     if(state.data === undefined) {
-        MoviesList = <p className="NotFoundOrSearch"> Nenašli sa žiadne filmy </p>
+        MoviesList = <p className="NotFoundOrSearch"> No movies found </p>
     }
 
     const changePage = (page) => setCurrentPage(page);

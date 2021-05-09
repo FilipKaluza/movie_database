@@ -5,7 +5,7 @@ import Col from "antd/lib/col";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Stars from "../shared/Stars/Stars";
+import Stars from "../UI/Stars/Stars";
 import Spinner from "../shared/Spinner/Spinner";
 
 

@@ -68,15 +68,6 @@ const reducer = (state = initialState, action) => {
                     loading: false
                 }
             }
-        case "LOADFS":
-            return {
-                ...state,
-                movies: {
-                    ...state.movies,
-                    data: action.movies,
-                    loading: false
-                }
-            }
         default:
             return state
     };

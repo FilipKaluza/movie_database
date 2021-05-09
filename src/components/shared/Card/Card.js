@@ -2,7 +2,7 @@ import Col from "antd/lib/col";
 import Row from "antd/lib/row";
 import { Link } from "react-router-dom";
 
-import Star from "../Stars/Stars";
+import Star from "../../UI/Stars/Stars";
 
 const Card = (props) => {
 

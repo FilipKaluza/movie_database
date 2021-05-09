@@ -2,7 +2,7 @@ import {useEffect, useState, useRef} from "react";
 import { Input } from 'antd';
 
 import {useDispatch} from "react-redux";
-import * as actions from "../store/actions/actions";
+import * as actions from "../../store/actions/actions";
 
 const SearchMovie = () => {
 
@@ -18,7 +18,7 @@ const SearchMovie = () => {
                 dispatch(actions.fetchMoviesStart())
                 dispatch(actions.fetchMovies(input))
             }
-        }, 500)
+        }, 800)
         return () => clearTimeout(debounce) 
 
     }, [dispatch, input])
@@ -26,11 +26,6 @@ const SearchMovie = () => {
     useEffect(() => {
         inputRef.current.focus()
     }, [])
-    /* useEffect(() => {
-        let movies = JSON.parse(localStorage.getItem("movies"))
-        dispatch({type: "LOADFS" , movies: movies})
-    }, [dispatch]) */
-
 
     return(
         <>

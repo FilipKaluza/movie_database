@@ -1,6 +1,3 @@
-@import "variables.scss";
-@import "mixins.scss";
-
 .Footer {
     height: 100px;
     width: 100%;
@@ -22,6 +19,7 @@
     }
     p {
         color: #fff;
+        margin-top: 10px;
         width: 100%;
     }
 }

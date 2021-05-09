@@ -4,7 +4,7 @@
     min-height: 100vh;
     width: 100%;
     height: 100%;
-    background: linear-gradient(140deg, rgba(4,95,110,1) 13%, rgba(0,0,0,1) 13%, rgba(0,0,0,1) 82%, rgba(4,95,110,1) 82%);
+    background: linear-gradient(140deg, $secondarColor 13%, #000000 13%, #000000 82%, $secondarColor 82%);
     .Logo {
         position: fixed;
         bottom: 30px;

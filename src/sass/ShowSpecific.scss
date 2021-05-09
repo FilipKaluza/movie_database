@@ -1,7 +1,9 @@
-
 .Specific {
-    width: 80%;
+    width: 60%;
+    font-family: $mainFont;
+    min-height: 70vh;
     margin: 60px auto 0 auto;
+    padding-top: 120px;
     color: #fff;
     img {
         width: 95%;
@@ -9,7 +11,7 @@
         border-radius: 6px;
     }
     h1 {
-        margin: 0;
+        margin: 2px 10px 0 0;
         font-size: 20px;
         font-weight: 600;
         color: #fff;
@@ -35,26 +37,19 @@
 
 @media (max-width: 1040px) {
     .Specific {
-
+        width: 80%;
+        margin: 60px 10%;
         .SpecificTitle {
             margin-top: 30px;
         }
-        p {
-            font-size: 12px;
-            margin: 0;
-            max-width: 400px;
-            text-align: justify;
+        img {
+            width: 100%;
         }
-    
-        h2 {
-            font-size: 16px;
-            font-weight: 600;
-            margin: 2px 0;
-            color: #fff;
-        }
-    
         .Others {
             font-size: 10px;
+        }
+        h1 {
+            margin: 4px 10px 0;
         }
     }
 }

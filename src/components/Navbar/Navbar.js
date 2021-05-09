@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
-import SearchBar from "../SearchMovie/SearchMovie";
+import SearchBar from "../UI/Input/Input";
 import { ReactComponent as LogoNav } from "../../assets/images/logoNav.svg";
 import { ReactComponent as LogoNavMobile } from "../../assets/images/logoBlack.svg";
 import { ArrowLeftOutlined } from '@ant-design/icons';
