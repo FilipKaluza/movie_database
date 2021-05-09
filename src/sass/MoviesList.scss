@@ -34,7 +34,7 @@
             margin: 0 10px 0 0;
         }
     }
-    .NotFoundOrSearch {
+    .NotFoundOrSearch, .NoFavouriteFilms {
         font-size: 30px;
     }
     .ant-pagination {
@@ -94,7 +94,7 @@
                 margin: 0 6px 10px 0;
             }
         }
-        .NotFoundOrSearch {
+        .NotFoundOrSearch, .NoFavouriteFilms {
             margin-top: 60px;
             font-size: 20px;
             text-align: center;

@@ -11,8 +11,8 @@ const Favourites = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [moviesPerPage, setMoviesPerPage] = useState(8);
 
-    let favouriteMovies = <p> Nemáte žiadne obľúvené filmy </p>
-    if(favourites) {
+    let favouriteMovies = <p className="NoFavouriteFilms"> You have no favourite movies </p>
+    if(favourites.length > 0) {
         const indexOfLastMovie = currentPage * moviesPerPage;
         const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
         const currentMovies = favourites.slice(indexOfFirstMovie, indexOfLastMovie)
@@ -29,7 +29,7 @@ const Favourites = () => {
     return(
         <Row className="MoviesList" >
             {favouriteMovies}
-            {favourites ? <Pagination moviesPerPage={moviesPerPage}  totalMovies={favourites.length} paginate={changePage} /> : null }
+            {favourites.length > 0 ? <Pagination moviesPerPage={moviesPerPage}  totalMovies={favourites.length} paginate={changePage} /> : null }
         </Row>
     );
 };

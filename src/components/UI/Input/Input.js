@@ -29,7 +29,7 @@ const SearchMovie = () => {
 
     return(
         <>
-            <Input ref={inputRef} placeholder="Enter your film" onChange={(e) => setInput(e.target.value)} />
+            <Input ref={inputRef} placeholder="Enter a movie title" onChange={(e) => setInput(e.target.value)} />
         </>
     );
 };
