@@ -1,15 +1,15 @@
-import { useState, useEffect} from "react";
-import Row from "antd/lib/row";
+import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
 import SearchBar from "../SearchMovie/SearchMovie";
 import { ReactComponent as LogoNav } from "../../assets/images/logoNav.svg";
 import { ReactComponent as LogoNavMobile } from "../../assets/images/logoBlack.svg";
-
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useLocation } from "react-router-dom";
 
-const Navbar = (props) => {
+import Row from "antd/lib/row";
+
+const Navbar = () => {
 
     const [serchVisible, setSerchVisible] = useState(true)
 
@@ -30,7 +30,6 @@ const Navbar = (props) => {
                 <Link className="FavouriteNav" to="/favourites"> Favourites </Link>
                 {serchVisible ? <SearchBar /> : <Link className="BackToSearch" to="/"> Back to Search  <ArrowLeftOutlined /> </Link>  }
             </div>
-             
         </Row>
     );
 };

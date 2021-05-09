@@ -17,6 +17,8 @@
     p {
         font-size: 12px;
         margin: 0;
+        max-width: 400px;
+        text-align: justify;
     }
 
     h2 {
@@ -29,6 +31,30 @@
     .Others {
         font-size: 10px;
     }
+}
 
+@media (max-width: 1040px) {
+    .Specific {
 
+        .SpecificTitle {
+            margin-top: 30px;
+        }
+        p {
+            font-size: 12px;
+            margin: 0;
+            max-width: 400px;
+            text-align: justify;
+        }
+    
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 2px 0;
+            color: #fff;
+        }
+    
+        .Others {
+            font-size: 10px;
+        }
+    }
 }

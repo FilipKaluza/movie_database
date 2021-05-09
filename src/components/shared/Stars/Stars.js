@@ -1,28 +1,32 @@
-
-import { useState } from "react";
+import {useSelector, useDispatch} from "react-redux";
 import { StarOutlined, StarFilled } from '@ant-design/icons';
+import * as actions from "../../store/actions/actions";
 
 const Stars = (props) => {
 
-    const [actualFavourites, setActualFavourites] = useState( JSON.parse(localStorage.getItem("favourite-movies")) || [] )
+    /* const [actualFavourites, setActualFavourites] = useState( JSON.parse(localStorage.getItem("favourite-movies")) || [] ) */
+
+    const actualFavourites = useSelector(state => state.persistReducer.favourites) || [];
+
+    const dispatch = useDispatch();
 
     const addToFavorites = (movie) => {
-        let newFavourites = JSON.parse(localStorage.getItem("favourite-movies")) || []
+        let newFavourites = [...actualFavourites]
         newFavourites.push(movie)
-        localStorage.setItem("favourite-movies", JSON.stringify(newFavourites))
-        setActualFavourites(newFavourites)
+        dispatch(actions.addToFavourites(newFavourites))
     }
 
     const removeFromFavourites = (id) => {
-        let newFavourites = JSON.parse(localStorage.getItem("favourite-movies")) 
-        let filteredFavourites = newFavourites.filter((item) => item.imdbID !== id)
-        localStorage.setItem("favourite-movies", JSON.stringify(filteredFavourites))
-        setActualFavourites(filteredFavourites)
+        let actualFavouritesCopy = [...actualFavourites]
+        let filteredFavourites = actualFavouritesCopy.filter((item) => item.imdbID !== id)
+        dispatch(actions.removeFromFavourites(filteredFavourites));
     }
 
     let star = <StarOutlined onClick={() => addToFavorites(props.movie)} />
-    if( actualFavourites.some(favorite => favorite.imdbID === props.movie.imdbID)) {
-        return star = <StarFilled onClick={() => removeFromFavourites(props.movie.imdbID)} />
+    if (actualFavourites !== null) {
+        if( actualFavourites.some(favorite => favorite.imdbID === props.movie.imdbID)) {
+            return star = <StarFilled onClick={() => removeFromFavourites(props.movie.imdbID)} />
+        }
     }
 
     return (

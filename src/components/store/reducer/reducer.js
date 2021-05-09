@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
     movies: {
-        data: [],
+        data: null,
         loading: false,
         error: null
     },
@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LOAD_MOVIES_START:
             return {
                 ...state,
-                showSpecific: {
+                movies: {
                     ...state.movies,
                     loading: true
                 }

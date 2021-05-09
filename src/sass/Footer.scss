@@ -1,0 +1,27 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.Footer {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    .ant-row {
+        width: 100%;
+        margin-top: 20px;
+        @include flex(center,center);
+    }
+    .anticon svg {
+        fill: #fff;
+        height: 30px;
+        width: 30px;
+        margin: 5px;
+    }
+    .anticon svg:hover{
+        cursor: pointer;
+        fill: $mainColor;
+    }
+    p {
+        color: #fff;
+        width: 100%;
+    }
+}

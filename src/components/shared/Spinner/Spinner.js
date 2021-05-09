@@ -1,6 +1,5 @@
 import { Spin  } from 'antd';
 
-
 const Spinner = () => {
     return(
         <div className="Spinner" >

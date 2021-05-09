@@ -1,14 +1,16 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import { Input } from 'antd';
 
 import {useDispatch} from "react-redux";
 import * as actions from "../store/actions/actions";
 
-const SearchMovie = (props) => {
+const SearchMovie = () => {
 
     const [input, setInput ] = useState("");
 
     const dispatch = useDispatch();
+
+    const inputRef = useRef(null);
 
     useEffect(() => {
         const debounce = setTimeout(() => {
@@ -17,9 +19,13 @@ const SearchMovie = (props) => {
                 dispatch(actions.fetchMovies(input))
             }
         }, 500)
-        return () => clearImmediate(debounce)
+        return () => clearTimeout(debounce) 
 
     }, [dispatch, input])
+
+    useEffect(() => {
+        inputRef.current.focus()
+    }, [])
     /* useEffect(() => {
         let movies = JSON.parse(localStorage.getItem("movies"))
         dispatch({type: "LOADFS" , movies: movies})
@@ -28,7 +34,7 @@ const SearchMovie = (props) => {
 
     return(
         <>
-            <Input placeholder="Enter your film" onChange={(e) => setInput(e.target.value)} />
+            <Input ref={inputRef} placeholder="Enter your film" onChange={(e) => setInput(e.target.value)} />
         </>
     );
 };

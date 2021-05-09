@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Star from "../Stars/Stars";
 
-const AntCard = (props) => {
+const Card = (props) => {
 
     let title = props.movie.Title
     if(title.length > 15) {
@@ -26,4 +26,4 @@ const AntCard = (props) => {
     );
 };
 
-export default AntCard;
+export default Card;

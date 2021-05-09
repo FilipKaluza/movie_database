@@ -5,6 +5,7 @@ import MoviesList from "./components/MovieList/MoviesList";
 import Favourites from "./components/Favourites/Favourites";
 import SpecificMovie from "./components/SpecificMovie/SpecificMovie";
 import { ReactComponent as Logo } from "./assets/images/logoBlack.svg";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/" exact component={MoviesList} />
             <Route path="/movie/:movieId" exact component={SpecificMovie} />
             <Route path="/favourites" exact component={Favourites} />
+            <Footer />
             <Logo className="Logo" />
         </div>
     )

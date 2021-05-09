@@ -13,8 +13,7 @@ import * as actions from "../store/actions/actions";
 
 const SpecificMovie = () => {
 
-    const specificFilm = useSelector(state => state.showSpecific);
-    console.log(specificFilm)
+    const SpecificMovie = useSelector(state => state.reducer.showSpecific);
 
     const dispatch = useDispatch();
 
@@ -26,8 +25,8 @@ const SpecificMovie = () => {
     }, [dispatch, movieId])
 
     let ratings = null
-    if(specificFilm.data !== null && !specificFilm.loading) {
-        ratings = specificFilm.data.Ratings.map((rating, index) => {
+    if(SpecificMovie.data !== null && !SpecificMovie.loading) {
+        ratings = SpecificMovie.data.Ratings.map((rating, index) => {
             return (
                 <p key={index} > {rating.Source} : {rating.Value} </p>
             )
@@ -36,36 +35,36 @@ const SpecificMovie = () => {
 
     return(
         <>
-            {specificFilm.loading ? 
+            {SpecificMovie.loading ? 
             <Spinner /> : 
             <Row className="Specific" justify="cetner" >
                     <Col xs={24} md={8} >
-                        <img src={specificFilm.data.Poster} alt={specificFilm.data.Title} />
+                        <img src={SpecificMovie.data.Poster} alt={SpecificMovie.data.Title} />
                     </Col>
                     <Col xs={24} md={16}>
-                        <Row>
-                            <h1> {specificFilm.data.Title} </h1>
-                            <Stars movie={{imdbID: specificFilm.data.imdbID, Poster: specificFilm.data.Poster, Title: specificFilm.data.Title}} />
+                        <Row className="SpecificTitle">
+                            <h1> {SpecificMovie.data.Title} </h1>
+                            <Stars movie={{imdbID: SpecificMovie.data.imdbID, Poster: SpecificMovie.data.Poster, Title: SpecificMovie.data.Title}} />
                         </Row>
-                        <p className="DataOfRealease" > Release date: {specificFilm.data.Released} </p>
-                        <p className="Actors"> Actors: {specificFilm.Actors} </p>
-                        <p> Genre: {specificFilm.data.Genre} </p>
-                        <p> Runtime: {specificFilm.data.Runtime} </p>
-                        <p> Director: {specificFilm.data.Director} </p>
-                        <p> Awards: {specificFilm.data.Awards} </p>
-                        <p> Country: {specificFilm.data.Country} </p>
-                        <p> Language: {specificFilm.data.Language} </p>
+                        <p className="DataOfRealease" > Release date: {SpecificMovie.data.Released} </p>
+                        <p className="Actors"> Actors: {SpecificMovie.Actors} </p>
+                        <p> Genre: {SpecificMovie.data.Genre} </p>
+                        <p> Runtime: {SpecificMovie.data.Runtime} </p>
+                        <p> Director: {SpecificMovie.data.Director} </p>
+                        <p> Awards: {SpecificMovie.data.Awards} </p>
+                        <p> Country: {SpecificMovie.data.Country} </p>
+                        <p> Language: {SpecificMovie.data.Language} </p>
                         <h2> Overview: </h2>
-                        <p className="Plot"> {specificFilm.data.Plot} </p>
+                        <p className="Plot"> {SpecificMovie.data.Plot} </p>
                         <h2> Ratings: </h2>
                         {ratings}
-                        <p> IMDB Rating: {specificFilm.data.imdbRating} </p>
+                        <p> IMDB Rating: {SpecificMovie.data.imdbRating} </p>
                         <h2> Others: </h2>
                         <p className="Others">
-                            Rated: {specificFilm.data.Rated} <br/>
-                            Writers: {specificFilm.data.Writer} <br/>
-                            Production: {specificFilm.data.Production} <br/>
-                            BoxOffice: {specificFilm.data.BoxOffice}
+                            Rated: {SpecificMovie.data.Rated} <br/>
+                            Writers: {SpecificMovie.data.Writer} <br/>
+                            Production: {SpecificMovie.data.Production} <br/>
+                            BoxOffice: {SpecificMovie.data.BoxOffice}
                         </p>
                     </Col>
                 </Row>}

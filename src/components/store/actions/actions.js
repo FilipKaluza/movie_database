@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import {saveState} from "../localStorage/localStorage";
 
 export const fetchMoviesStart = () => {
     return {
@@ -63,5 +64,21 @@ export const fetchSpecificMovie = (id) => {
         catch(err) {
             dispatch(fetchSpecificMovieFailed("Nepodarilo sa načítať konkrétny film"))
         }
+    };
+};
+
+export const addToFavourites = (newFavourites) => {
+    saveState(newFavourites);
+    return {
+        type: actionTypes.ADD_TO_FAVOURITES,
+        favourites: newFavourites
+    };
+};
+
+export const removeFromFavourites = (filteredFavourites) => {
+    saveState(filteredFavourites);
+    return {
+        type: actionTypes.REMOVE_FROM_FAVOURITES,
+        favourites: filteredFavourites
     };
 };
