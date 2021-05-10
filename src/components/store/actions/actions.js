@@ -30,7 +30,7 @@ export const fetchMovies = (input) => {
             dispatch(fetchMoviesSuccess(movies));
         }
         catch (err) {
-            
+            dispatch(fetchMoviesFailed("Nepodarilo sa načítať filmy"));
         }
     };
 };
